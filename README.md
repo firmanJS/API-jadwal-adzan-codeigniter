@@ -3,6 +3,7 @@ Aplikasi untuk mengambil jadwal adzan dengan menggunakan framework codeigniter, 
 
 # API Moslem Prayer Time Documentation & Reference
 https://aladhan.com/prayer-times-api 
+https://github.com/bachors/Al-Quran-ID-API
 
 ## Cara Penggunaan
 Bisa di lihat di 

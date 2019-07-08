@@ -1,4 +1,5 @@
-<h3>Data Jadwal Adzan Wilayah <?php echo ucwords($lokasi) ;?> dan sekitarnya</h3>
+<h3>Data Jadwal Adzan Wilayah <?php echo ucwords($lokasi) ;?> 
+Tanggal Masehi <?php echo date('d-m-Y');?> Hijriah <?php echo $hijriah;?> dan sekitarnya</h3>
 <ul class="list-group">
 	<li class="list-group-item">Subuh Pukul  <?php echo $subuh;?></li>
 	<li class="list-group-item">Dzuhur Pukul <?php echo $dzuhur;?></li>

@@ -26,7 +26,7 @@
 							<label for="email">Kota</label>
 							<input type="text" class="form-control" name="kota">
 						</div>
-						<div class="form-group">
+						<!-- <div class="form-group">
 							<label for="pwd">Bulan</label>
 							<select class="form-control" name="bulan">
 							<?php $noBulan = 1; for($index=0; $index<12; $index++){ ?>
@@ -37,7 +37,7 @@
 						<div class="form-group">
 							<label for="pwd">Tahun</label>
 							<input type="number" class="form-control" name="tahun">
-						</div>
+						</div> -->
 						<button type="button" id="cek" class="btn btn-default">Submit</button>
 					</form>
 					<center id="loader">
@@ -55,7 +55,7 @@
 							<label for="email">Kota</label>
 							<input type="text" class="form-control" ng-model="kota">
 						</div>
-						<div class="form-group">
+						<!-- <div class="form-group">
 							<label for="pwd">Bulan</label>
 							<select class="form-control" ng-model="bulan">
 							<?php $noBulan = 1; for($index=0; $index<12; $index++){ ?>
@@ -66,7 +66,7 @@
 						<div class="form-group">
 							<label for="pwd">Tahun</label>
 							<input type="number" class="form-control" ng-model="tahun">
-						</div>
+						</div> -->
 						<button type="button" ng-click="cekAngular()" class="btn btn-default">Submit</button>
 					</form>
 					<center id="loader" ng-show="angularLoader">

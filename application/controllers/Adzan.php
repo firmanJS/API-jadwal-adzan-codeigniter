@@ -14,7 +14,7 @@ class Adzan extends CI_Controller {
 	{
 		if($this->input->is_ajax_request()){
 					$param  = array('city' => $_POST['kota'],'country' => 'ID',
-			'method' => '11','month' => $_POST['bulan'],'year' => $_POST['tahun']);
+			'method' => '11','month' => date('m'),'year' => date('Y'));
 
 		$urlApi = 'http://api.aladhan.com/v1/calendarByCity'; //Url API
 		$urlApi .='?city='.$_POST['kota']; // Ambil kota dari form submit
@@ -24,9 +24,9 @@ class Adzan extends CI_Controller {
 		method method untuk aplikasi
 		dokumentasi nya kunjungi https://aladhan.com/prayer-times-api#GetCalendarByCitys
 		*/
-		$urlApi .='&month='.$_POST['bulan']; // Ambil bulan dari form submit
-		$urlApi .='&year='.$_POST['tahun']; // Ambil tahun dari form submit
-
+		$urlApi .='&month='.date('m'); // Ambil bulan dari form submit
+		$urlApi .='&year='.date('Y'); // Ambil tahun dari form submit
+		
 		$ch = curl_init(); //set curl
 		curl_setopt($ch, CURLOPT_URL, $urlApi);  // Ambil Data dari API Url
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
@@ -49,6 +49,7 @@ class Adzan extends CI_Controller {
 		$data['magrib'] = ($decodeData->code == 200 ? $decodeData->data[$dayNow]->timings->Maghrib : "Tidak Tersedia");
 		$data['isya'] = ($decodeData->code == 200 ? $decodeData->data[$dayNow]->timings->Isha : "Tidak Tersedia");
 		$data['lokasi'] = $_POST['kota'];
+		$data['hijriah'] = ($decodeData->code == 200 ? $decodeData->data[$dayNow]->date->hijri->date : "Tidak Tersedia");
 
 		$html  = $this->load->view('V_adzan',$data,true);
 		header('Content-Type: application/json');
@@ -63,7 +64,7 @@ class Adzan extends CI_Controller {
 		//if($this->input->is_ajax_request()){
 		$dt = json_decode(file_get_contents("php://input"));
 		$param  = array('city' => $dt->kota,'country' => 'ID',
-			'method' => '11','month' => $dt->bulan,'year' => $dt->tahun);
+			'method' => '11','month' => date('m'),'year' => date('Y'));
 
 		$urlApi = 'http://api.aladhan.com/v1/calendarByCity'; //Url API
 		$urlApi .='?city='.$dt->kota; // Ambil kota dari form submit
@@ -73,8 +74,8 @@ class Adzan extends CI_Controller {
 		method method untuk aplikasi
 		dokumentasi nya kunjungi https://aladhan.com/prayer-times-api#GetCalendarByCitys
 		*/
-		$urlApi .='&month='.$dt->bulan; // Ambil bulan dari form submit
-		$urlApi .='&year='.$dt->tahun; // Ambil tahun dari form submit
+		$urlApi .='&month='.date('m'); // Ambil bulan dari form submit
+		$urlApi .='&year='.date('Y'); // Ambil tahun dari form submit
 
 		$ch = curl_init(); //set curl
 		curl_setopt($ch, CURLOPT_URL, $urlApi);  // Ambil Data dari API Url
@@ -98,6 +99,7 @@ class Adzan extends CI_Controller {
 		$data['magrib'] = ($decodeData->code == 200 ? $decodeData->data[$dayNow]->timings->Maghrib : "Tidak Tersedia");
 		$data['isya'] = ($decodeData->code == 200 ? $decodeData->data[$dayNow]->timings->Isha : "Tidak Tersedia");
 		$data['lokasi'] = $dt->kota;
+		$data['hijriah'] = ($decodeData->code == 200 ? $decodeData->data[$dayNow]->date->hijri->date : "Tidak Tersedia");
 
 		$html  = $this->load->view('V_adzan',$data,true);
 		header('Content-Type: application/json');
