@@ -9,8 +9,10 @@ https://github.com/bachors/Al-Quran-ID-API
 Bisa di lihat di 
 
 ```
-applicatioon/controller Adzan.php
+applicatioon/controller Adzan.php --> Default jadwal adzan
 sesuaikan di fungsi getjadwal()
+
+applicatioon/controller Quran.php --> untuk menjalanakan di url /quran
 ```
 
 # Technologies
