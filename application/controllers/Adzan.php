@@ -48,6 +48,9 @@ class Adzan extends CI_Controller {
 		$data['ashar'] = ($decodeData->code == 200 ? $decodeData->data[$dayNow]->timings->Asr : "Tidak Tersedia");
 		$data['magrib'] = ($decodeData->code == 200 ? $decodeData->data[$dayNow]->timings->Maghrib : "Tidak Tersedia");
 		$data['isya'] = ($decodeData->code == 200 ? $decodeData->data[$dayNow]->timings->Isha : "Tidak Tersedia");
+		$data['sunrise'] = ($decodeData->code == 200 ? $decodeData->data[$dayNow]->timings->Sunrise : "Tidak Tersedia");
+		$data['sunset'] = ($decodeData->code == 200 ? $decodeData->data[$dayNow]->timings->Sunset : "Tidak Tersedia");
+		$data['midnight'] = ($decodeData->code == 200 ? $decodeData->data[$dayNow]->timings->Midnight : "Tidak Tersedia");
 		$data['lokasi'] = $_POST['kota'];
 		$data['hijriah'] = ($decodeData->code == 200 ? $decodeData->data[$dayNow]->date->hijri->date : "Tidak Tersedia");
 
@@ -98,6 +101,9 @@ class Adzan extends CI_Controller {
 		$data['ashar'] = ($decodeData->code == 200 ? $decodeData->data[$dayNow]->timings->Asr : "Tidak Tersedia");
 		$data['magrib'] = ($decodeData->code == 200 ? $decodeData->data[$dayNow]->timings->Maghrib : "Tidak Tersedia");
 		$data['isya'] = ($decodeData->code == 200 ? $decodeData->data[$dayNow]->timings->Isha : "Tidak Tersedia");
+		$data['sunrise'] = ($decodeData->code == 200 ? $decodeData->data[$dayNow]->timings->Sunrise : "Tidak Tersedia");
+		$data['sunset'] = ($decodeData->code == 200 ? $decodeData->data[$dayNow]->timings->Sunset : "Tidak Tersedia");
+		$data['midnight'] = ($decodeData->code == 200 ? $decodeData->data[$dayNow]->timings->Midnight : "Tidak Tersedia");
 		$data['lokasi'] = $dt->kota;
 		$data['hijriah'] = ($decodeData->code == 200 ? $decodeData->data[$dayNow]->date->hijri->date : "Tidak Tersedia");
 
