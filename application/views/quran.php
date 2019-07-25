@@ -37,19 +37,19 @@
 	$("#cek").click(function(event) {
 		$("#showData").html("");
 		$("#loader").show();
-		$.ajax({
-			type: 'POST',
-			url: 'quran/getList',
-			success: function (res) {
-       $("#loader").hide();
-			 $("#showData").html(res.html);
-			},
-			error: function (res) {
-        $("#loader").hide();
-        console.log(res);
-			}
+		$.getJSON('https://al-quran-8d642.firebaseio.com/data.json?print=pretty', function(res){
+			$("#loader").hide();
+			var html = "<h3>List Surat Al-Qur'an</h3><ul class='list-group'>";
+			$.each(res, function(i, r){
+				html +="<li class='list-group-item'>"+r.nomor+ " . "+ r.nama +" "+ r.asma + " ("+r.arti+")"+"<br><br> ";
+				html +="<p style='text-align:justify;'>"+r.keterangan+"</p> <br>";
+				html +=" <audio controls> <source src="+r.audio+"> </audio></li>";
+			});
+			html += "</ul>"; 
+			$("#showData").append(html);
+			
 		});
 	});
-		</script>
+	</script>
 </body>
 </html>
